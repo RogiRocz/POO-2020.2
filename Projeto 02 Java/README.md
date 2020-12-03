@@ -1,14 +1,21 @@
-## Getting Started
+## 1. O que fiz?
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Criei uma classe carro onde tinha seus atributos e métodos junto com uma função main que controlava de maneira iterativa as ações e regras de negócio de uma instãncia de carro.
 
-## Folder Structure
+## 2. Com quem eu fiz?
 
-The workspace contains two folders by default, where:
+Somente eu fiz esse código.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## 2. Como eu fiz?
 
-## Dependency Management
+Fiz métodos getters, setters e um toString para poder manipular os atributos.
+Na função main usei o do-while junto com o switch para poder receber a entrada do usuário e poder trabalhar em cima das palavras chaves que foram fornecidas na descrição do projeto.
 
-The `JAVA DEPENDENCIES` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-pack/blob/master/release-notes/v0.9.0.md#work-with-jar-files-directly).
+## 2. O que aprendi e minha dificuldade?
+
+Na verdade não aprendi nada de novo, haja vista que, eu venho de um curso de informática onde já tinha visto essa linguagem.
+A dificuldade constava em lembrar de certas coisas que já foram relembradas nas aulas online.
+
+## 2. Quanto tempo levei?
+
+Creio que levei de 2 ~ 3 horas, por causa
