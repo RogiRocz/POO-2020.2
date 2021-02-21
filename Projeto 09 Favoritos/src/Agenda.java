@@ -1,7 +1,6 @@
 import java.util.TreeMap;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -24,7 +23,6 @@ public class Agenda {
 
         contacts.put(name, new Contact(name));
         addContact(name, fone);
-        // Collections.sort(contacts);
     }
 
     public boolean rmContact(String name) {
@@ -71,7 +69,6 @@ public class Agenda {
             if (c.getName().equals(nameContact)) {
                 c.setFavorite(true);
                 favorites.put(c.getName(), c);
-                // Collections.sort(favorites);
                 return true;
             }
         }
@@ -85,7 +82,6 @@ public class Agenda {
             if (c.getName().equals(nameContact)) {
                 c.setFavorite(false);
                 favorites.remove(c.getName());
-                // Collections.sort(favorites);
                 return true;
             }
         }
