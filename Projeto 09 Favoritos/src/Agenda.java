@@ -1,33 +1,35 @@
+import java.util.TreeMap;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
 public class Agenda {
-    private List<Contact> contacts;
-    private List<Contact> favorites;
+    private TreeMap<String, Contact> contacts;
+    private TreeMap<String, Contact> favorites;
 
     public Agenda() {
-        contacts = new ArrayList<>();
-        favorites = new ArrayList<>();
+        contacts = new TreeMap<>();
+        favorites = new TreeMap<>();
     }
 
     public void addContact(String name, Fone fone) {
-        for (Contact c : contacts) {
+        for (Contact c : contacts.values()) {
             if (c.getName().equals(name)) {
                 c.addFone(fone);
                 return;
             }
         }
 
-        contacts.add(new Contact(name));
+        contacts.put(name, new Contact(name));
         addContact(name, fone);
-        Collections.sort(contacts);
+        // Collections.sort(contacts);
     }
 
     public boolean rmContact(String name) {
-        for (Contact c : contacts) {
-            if (c.getName().equals(name)) {
+        for (String c : contacts.keySet()) {
+            if (c.equals(name)) {
                 contacts.remove(c);
                 favorites.remove(c);
                 return true;
@@ -40,7 +42,7 @@ public class Agenda {
     public List<Contact> search(String pattern) {
 
         ArrayList<Contact> aux = new ArrayList<>();
-        for (Contact c : contacts) {
+        for (Contact c : contacts.values()) {
             String cToString = c.toString();
             if (cToString.indexOf(pattern) != -1) {
                 aux.add(c);
@@ -55,7 +57,7 @@ public class Agenda {
     }
 
     public Contact getContact(String name) {
-        for (Contact c : contacts) {
+        for (Contact c : contacts.values()) {
             if (c.getName().equals(name)) {
                 return c;
             }
@@ -65,11 +67,11 @@ public class Agenda {
     }
 
     public boolean favoriteContact(String nameContact) {
-        for (Contact c : contacts) {
+        for (Contact c : contacts.values()) {
             if (c.getName().equals(nameContact)) {
                 c.setFavorite(true);
-                favorites.add(c);
-                Collections.sort(favorites);
+                favorites.put(c.getName(), c);
+                // Collections.sort(favorites);
                 return true;
             }
         }
@@ -79,11 +81,11 @@ public class Agenda {
     }
 
     public boolean disfavorContact(String nameContact) {
-        for (Contact c : contacts) {
+        for (Contact c : contacts.values()) {
             if (c.getName().equals(nameContact)) {
                 c.setFavorite(false);
-                favorites.remove(c);
-                Collections.sort(favorites);
+                favorites.remove(c.getName());
+                // Collections.sort(favorites);
                 return true;
             }
         }
@@ -92,14 +94,14 @@ public class Agenda {
         return false;
     }
 
-    public List<Contact> getFavorites() {
-        return favorites;
+    public Collection<Contact> getFavorites() {
+        return favorites.values();
     }
 
     @Override
     public String toString() {
         StringBuilder bld = new StringBuilder();
-        for (Contact c : contacts) {
+        for (Contact c : contacts.values()) {
             if (c.isFavorite()) {
                 bld.append("@ " + c + "\n");
             } else {
