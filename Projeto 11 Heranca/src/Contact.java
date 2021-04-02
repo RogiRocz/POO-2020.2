@@ -4,13 +4,10 @@ import java.util.List;
 public class Contact implements Comparable<Contact> {
     private String nameContact;
     List<Fone> fones;
-    // boolean favorite;
 
-    public Contact(String nameContact, Fone fn) {
+    public Contact(String nameContact) {
         this.nameContact = nameContact;
-        this.fone = new ArrayList<>();
-        this.fones.add(fn);
-        this.favorite = false;
+        this.fones = new ArrayList<>();
     }
 
     public void addFone(Fone f) {
@@ -21,19 +18,13 @@ public class Contact implements Comparable<Contact> {
         fones.remove(index);
     }
 
-    public String getNameContact() {
+    public String getName() {
         return nameContact;
     }
 
-    /*
-     * public boolean isFavorite() { return favorite; }
-     * 
-     * public void setFavorite(boolean favorite) { this.favorite = favorite; }
-     */
-
     @Override
     public int compareTo(Contact o) {
-        return nameContact.compareTo(o.getNameContact());
+        return nameContact.compareTo(o.getName());
     }
 
     @Override
